@@ -1,0 +1,18 @@
+<div class="games-container">
+        <ul class="games-list">
+            {{#each games}}
+                <li class="game-item">
+                    <img src="{{this.image}}">
+                    <p><strong>Nome:</strong> {{this.name}}</p>
+                    <p><strong>Preço:</strong> {{this.price}}</p>
+                    <p><strong>Gênero:</strong> {{this.genre}}</p>
+                    <p><strong>Ano:</strong> {{this.year}}</p>
+                    <a href="/edit/{{this.id}}" class="btn">Editar</a>
+                    <form action="/remove" method="post">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <input type="submit" value="Excluir" class="btn">
+                    </form>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
