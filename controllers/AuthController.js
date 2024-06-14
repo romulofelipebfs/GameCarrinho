@@ -2,7 +2,7 @@ const User = require('../models/User')
 
 const bcrypt = require('bcryptjs')
 
-module.exports = class AuthCOntroller{
+module.exports = class AuthController{
     static register(req, res){
         res.render('auth/register')
     }
@@ -29,7 +29,7 @@ module.exports = class AuthCOntroller{
         const checkIfUserExists = await User.findOne({where : {email:email}})
 
         if(checkIfUserExists){
-            req.flash('message', 'Cadastro realizado com sucesso')
+            req.flash('message', 'Usuário já existente')
             res.render('auth/register')
 
             return
@@ -41,7 +41,8 @@ module.exports = class AuthCOntroller{
         const user = {
             name,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            isAdmin: false,
         }
 
         try{
@@ -77,6 +78,10 @@ module.exports = class AuthCOntroller{
             req.flash('message', 'Senha incorreta')
             res.render('auth/login')
             return
+        }
+
+        if(user.isAdmin){
+            req.session.admin = user.isAdmin
         }
 
         req.session.userid = user.id

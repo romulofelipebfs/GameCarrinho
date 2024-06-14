@@ -24,7 +24,9 @@ body {
         overflow-y: scroll; /* Permite a rolagem vertical */
 }
 
-
+h1{
+    text-align: center;
+}
 
 .form-container {
     margin-top: 120px;
@@ -108,9 +110,20 @@ input[type="submit"]:hover {
     border-radius: 5px;
     text-align: center;
     margin: 0 auto 2em;
+    margin-top: 40px;
     max-width: 60%;
   }
 
+  .cart-count {
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75em;
+    position: absolute;
+    top: 10px;
+    right: 110px;
+}
 
 
 

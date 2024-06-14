@@ -10,6 +10,8 @@ router.get('/', GameController.home)
 router.get('/create', checkAuth, GameController.create)
 router.get('/edit/:id', checkAuth, GameController.update)
 router.get('/verCarrinho', checkAuth, GameController.verCarrinho)
+router.post('/cart/add', checkAuth,GameController.addToCart);
+router.post('/removeFromCart', GameController.removeFromCart);
 router.post('/update', checkAuth, GameController.updateSave)
 router.post('/remove', checkAuth,GameController.delete)
 router.post('/add', checkAuth,GameController.addGame)

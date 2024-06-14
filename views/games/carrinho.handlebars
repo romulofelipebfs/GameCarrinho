@@ -1,1 +1,19 @@
-<h1>carrinho</h1>
+
+<div class="games-container">
+<h1>Carrinho de Compras</h1>
+  <ul class="games-list">
+    {{#each games}}
+      <li class="game-item">
+        <img src="{{this.image}}" />
+        <p><strong>Nome:</strong> {{this.name}}</p>
+        <p><strong>Preço:</strong> {{this.price}}</p>
+        <p><strong>Gênero:</strong> {{this.genre}}</p>
+        <p><strong>Ano:</strong> {{this.year}}</p>
+        <form action="/removeFromCart" method="post">
+          <input type="hidden" name="id" value="{{this.id}}" />
+          <input type="submit" value="Remover do Carrinho" class="btn" />
+        </form>
+      </li>
+    {{/each}}
+  </ul>
+</div>
